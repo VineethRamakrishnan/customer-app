@@ -1,4 +1,6 @@
-## Spring Boot application to include following features
+## Spring Boot application to include various features
+
+**Implemented**
 
 *Spring Boot - @ConfigurationProperties
 *Spring Boot - Json to Object (Jackson mapping)
