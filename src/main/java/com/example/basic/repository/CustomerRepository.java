@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 
 import com.example.basic.data.Customer;
@@ -12,6 +13,9 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
 	Customer save(Customer customer);
 
+	@Procedure(procedureName="select_procedure")
+	Object[] selectProcedure();
+	
 	@Query("Select c from Customer c")
 	List<Customer> findAll();
 

@@ -34,9 +34,11 @@ public class CustomerServiceUtility implements CustomerService {
 	}
 
 	@Override
-	public List<Customer> getAllCustomers() {
+	public Object[] getAllCustomers() {
 		
-		return customerrepo.findAll();
+		//return customerrepo.findAll();
+		LOGGER.info("Response from MYSQL:{}",customerrepo.selectProcedure());
+		return customerrepo.selectProcedure();
 	}
 
 	@Override

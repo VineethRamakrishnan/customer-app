@@ -9,16 +9,36 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
+import com.example.basic.data.Customer;
+import com.example.basic.repository.CustomerRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CustomerControllerTest extends MainControllerTest{
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerControllerTest.class);
+	
+	@Autowired
+	protected CustomerRepository customerRepo;
+
+	protected Customer customerFirst;
+	protected Customer customerSecond;
+	protected Customer customerThird;
+
+	@Before
+	public void setData() {
+
+		customerFirst = new Customer(10L, "Vineeth", "Chennai", 22L, 100.25);
+		customerSecond = new Customer(20L, "Vikas", "Chennai", 22L, 200.25);
+		customerThird = new Customer(30L, "Sudhindra", "Chennai", 23L, 230.25);
+		customerRepo.save(customerFirst);
+	}
 	
 	@Test
 	public void testCreateCustomer() throws Exception {

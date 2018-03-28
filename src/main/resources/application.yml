@@ -12,3 +12,19 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+    
+configuration:
+  ipAddress: localhost
+  environment: development
+  
+prop:
+  retailer:
+    - organization: filpkart 
+      products: households
+      type: online
+    - organization: Amazon 
+      products: clothes
+      type: online
+    - organization: ebay 
+      products: mobiles
+      type: online 

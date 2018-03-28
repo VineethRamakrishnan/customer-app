@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.basic.data.Customer;
-import com.example.basic.service.CustomerServiceUtility;
+import com.example.basic.service.CustomerService;
 
 @RestController
 @RequestMapping("/customer")
@@ -21,8 +20,14 @@ public class CustomerController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
 
-	@Autowired
-	private CustomerServiceUtility customerutil;
+	
+	private CustomerService customerutil;
+	
+	
+	public CustomerController(CustomerService customerutil) {
+		super();
+		this.customerutil = customerutil;
+	}
 
 	@PostMapping(value = "/create")
 	public Customer createCustomer(@RequestBody Customer customer) {
@@ -31,7 +36,7 @@ public class CustomerController {
 	}
 
 	@GetMapping(value = "/getAll")
-	public List<Customer> getAllCustomers() {
+	public Object[] getAllCustomers() {
 
 		return customerutil.getAllCustomers();
 	}

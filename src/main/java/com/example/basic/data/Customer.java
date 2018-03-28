@@ -1,13 +1,22 @@
 package com.example.basic.data;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedStoredProcedureQuery;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer_sample")
-public class Customer {
+@NamedStoredProcedureQuery(name = "select_procedure",
+							procedureName = "select_procedure"
+							)
+public class Customer implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "id")
