@@ -13,14 +13,12 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
 	Customer save(Customer customer);
 
-	@Procedure(procedureName="select_procedure")
-	Object[] selectProcedure();
-	
 	@Query("Select c from Customer c")
 	List<Customer> findAll();
 
 	/**
 	 * Example for JPQL - Java Persistence Query Language
+	 * 
 	 * @param customerId
 	 * @return
 	 */
@@ -28,11 +26,16 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 	Customer findByCustomerId(Long customerId);
 
 	/**
-	 * Example for SQL - Structured Query Language 
+	 * Example for SQL - Structured Query Language
+	 * 
 	 * @param customerAddress
 	 * @param customerAge
 	 * @return
 	 */
-	@Query(value = "select * from customer_sample where address = :address and age = :age",nativeQuery = true)
-	List<Customer> findByCustomerAddressAndAge(@Param("address") String customerAddress,@Param("age") Long customerAge);
+	@Query(value = "select * from customer_sample where address = :address and age = :age", nativeQuery = true)
+	List<Customer> findByCustomerAddressAndAge(@Param("address") String customerAddress,
+			@Param("age") Long customerAge);
+
+	@Query(value = "select * from customer_sample", nativeQuery = true)
+	List<Customer> findAllByCustomQuery();
 }

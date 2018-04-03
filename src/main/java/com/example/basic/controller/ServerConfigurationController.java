@@ -23,7 +23,7 @@ public class ServerConfigurationController {
 	@GetMapping("/getAll")
 	public List<Retailer> getIpAddress() {
 
-		return serviceImpl.getAllRetailers();
+		return serviceImpl.getRetailers();
 	}
 
 }

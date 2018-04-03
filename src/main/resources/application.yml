@@ -17,14 +17,18 @@ configuration:
   ipAddress: localhost
   environment: development
   
-prop:
-  retailer:
-    - organization: filpkart 
-      products: households
-      type: online
-    - organization: Amazon 
-      products: clothes
-      type: online
-    - organization: ebay 
-      products: mobiles
-      type: online 
+#prop:
+#  retailers:
+#  - 
+#    organization: "flipkart"
+#    products: "households"
+#    type: "online"
+#  - 
+#    organization: "amazon"
+#    products: "fashion"
+#    type: "online"
+#  - 
+#    organization: "ebay"
+#    products: "electronics"
+#    type: "wholesale"
+     

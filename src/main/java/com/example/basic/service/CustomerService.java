@@ -9,7 +9,13 @@ public interface CustomerService {
 
 	Customer saveCustomer(Customer customer);
 
-	Object[] getAllCustomers();
+	List<Customer> getAllCustomers();
+	
+	List<Customer> getAllCustomersByCustomQuery();
+	
+	List<Customer>	getAllCustomersByStoredProcedure();
+	
+	Customer updateCustomersByStoredProcedure(Long customerId,Double newPoints);
 
 	Customer getCustomerById(Long customerId);
 	

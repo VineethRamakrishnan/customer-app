@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +38,7 @@ public class CustomerController {
 	}
 
 	@GetMapping(value = "/getAll")
-	public Object[] getAllCustomers() {
+	public List<Customer> getAllCustomers() {
 
 		return customerutil.getAllCustomers();
 	}
@@ -51,6 +53,24 @@ public class CustomerController {
 	public List<Customer> getCustomersByAddressAndAge(@PathVariable(value = "address") String address,@PathVariable(value = "age") Long age) {
 
 		return customerutil.getCustomersByAddressAndAge(address, age);
+	}
+	
+	@GetMapping(value = "/getAllByStoredProcedure")
+	public List<Customer> getAllCustomersByStoredProcedure() {
+		
+		return customerutil.getAllCustomersByStoredProcedure();
+	}
+	
+	@GetMapping(value = "/getAllByCustomQuery")
+	public List<Customer> getAllCustomersByCustomQuery() {
+		
+		return customerutil.getAllCustomersByCustomQuery();
+	}
+	
+	@PutMapping(value = "/updatePointsByStoredProcedure/{id}/{points}")
+	public Customer updatePointsByStoredProcedure(@PathVariable(value = "id") Long customerId,@PathVariable(value = "points") Double newPoints) {
+		
+		return customerutil.updateCustomersByStoredProcedure(customerId,newPoints);
 	}
 
 }

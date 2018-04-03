@@ -38,6 +38,10 @@ public class Retailer {
 		this.products = products;
 		this.type = type;
 	}
+
+	public Retailer() {
+	}
+	
 	
 	
 	

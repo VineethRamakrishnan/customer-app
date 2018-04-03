@@ -5,15 +5,29 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedStoredProcedureQueries;
 import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.StoredProcedureParameter;
+import javax.persistence.ParameterMode;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer_sample")
-@NamedStoredProcedureQuery(name = "select_procedure",
-							procedureName = "select_procedure"
-							)
+@NamedStoredProcedureQueries({
+	@NamedStoredProcedureQuery(
+			   name = "select_procedure", 
+			   procedureName = "select_procedure"
+			     ),
+	@NamedStoredProcedureQuery(
+			   name = "update_procedure", 
+			   procedureName = "update_procedure", 
+			   
+			   parameters = {
+				  @StoredProcedureParameter(  name = "customer_id",  type = Long.class ,mode = ParameterMode.IN ),
+			      @StoredProcedureParameter( name = " customer_pts",  type = Double.class,  mode = ParameterMode.IN)
+			      
+			   })
+})
 public class Customer implements Serializable{
 
 	private static final long serialVersionUID = 1L;
