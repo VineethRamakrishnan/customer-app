@@ -40,8 +40,17 @@ public class SerializationControllerTest extends MainControllerTest {
 	@Test
 	public void testConvertJSONToObject() throws Exception {
 		
+		String requestCustomerXML = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>"+
+		"<root>"+
+		"<customerId>125</customerId>"+
+		"<name>Srinivasan</name>"+
+		"<address>Hyderabad</address>"+
+		"<age>30</age>"+
+		"<customerPoints>275.85</customerPoints>"+
+	"</root>";
+		
 		String requestCustomer = new ObjectMapper().writeValueAsString(new Customer(10L, "Vineeth", "Chennai", 22L, 75.5));
-		this.mockMvc.perform(post("/jackson/deserialization").contentType(MediaType.APPLICATION_JSON_UTF8).content(requestCustomer))
+		this.mockMvc.perform(post("/jackson/deserialization").contentType(MediaType.APPLICATION_XML).content(requestCustomerXML))
 						.andDo(print())
 						.andExpect(status().isOk())
 						.andExpect(jsonPath("$.address", is("Chennai")));

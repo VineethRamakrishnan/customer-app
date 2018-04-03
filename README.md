@@ -5,6 +5,22 @@
 * JPA : 1-1 and 1-Many
 * JPA : Stored Procedure and CustomQuery
 
+### Jackson
+
+This java based library is mainly used for serialization(Java Object to JSON) and deserialization(JSON to Java Object) purposes.
+
+* [Basic Doc](https://www.tutorialspoint.com/jackson/jackson_first_application.htm)
+* [Multiple examples](http://tutorials.jenkov.com/java-json/jackson-objectmapper.html#read-object-from-json-reader)
+
+##### HttpMessageConverters
+
+Bean used to manage the HttpMessageConverters used in a Spring Boot application. Provides a convenient way to add and merge additional HttpMessageConverters to a web application.
+
+1.Based on the **Content-Type** header it will call the corresponding MessageConvertor (For @RequestBody)
+
+2.Based on the **Accept** header it will call the the corresponding MessageConveror (For @ResponseBody) 
+
+
 ### CustomQuery
 
 It supports various custom SQL/JPQL queries to accomplish specialized application tasks. There are three ways of implementing the custom queries.
