@@ -9,7 +9,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 public class CustomSerialization extends SimpleModule {
 
 	public CustomSerialization() {
-			this.addDeserializer(Customer.class, new SerializationServiceImpl());
+			this.addDeserializer(Customer.class, new CustomSerializationImpl());
 	}
 
 }

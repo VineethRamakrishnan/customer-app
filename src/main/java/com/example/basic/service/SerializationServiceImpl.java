@@ -17,7 +17,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
-public class SerializationServiceImpl extends JsonDeserializer<Customer> implements SerializationService {
+public class SerializationServiceImpl implements SerializationService {
 
 	private Customer customer;
 
@@ -43,20 +43,6 @@ public class SerializationServiceImpl extends JsonDeserializer<Customer> impleme
 		return customer;
 	}
 
-	@Override
-	public Customer deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
-			throws IOException, JsonProcessingException {
-		ObjectCodec objectCodec = jsonParser.getCodec();
-		JsonNode jsonNode = objectCodec.readTree(jsonParser);
-		
-		customer.setCustomerId(jsonNode.get("BasicDetails").get("customerId").asLong());
-		customer.setName(jsonNode.get("BasicDetails").get("name").asText());
-		customer.setAddress(jsonNode.get("BasicDetails").get("address").asText());
-		customer.setAge(jsonNode.get("BasicDetails").get("age").asLong());
-		customer.setCustomerPoints(jsonNode.get("AddtionalDetails").get("customerPoints").asDouble());
-		
-		LOGGER.info("Deserialized object: {}",customer);
-		return customer;
-	}
+	
 
 }
