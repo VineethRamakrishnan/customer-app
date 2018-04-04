@@ -1,14 +1,17 @@
 package com.example.basic.service;
 
-import org.springframework.stereotype.Service;
-
 import com.example.basic.data.Customer;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 
-@Service
-public class CustomSerialization extends SimpleModule {
+/**
+ * @Service
+ * @author v.rama.krishnan
+ *
+ */
 
-	public CustomSerialization() {
+public class CustomJsonModule extends SimpleModule {
+
+	public CustomJsonModule() {
 			this.addDeserializer(Customer.class, new CustomSerializationImpl());
 	}
 

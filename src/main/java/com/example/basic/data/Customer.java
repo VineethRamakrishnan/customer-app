@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedStoredProcedureQueries;
 import javax.persistence.NamedStoredProcedureQuery;
-import javax.persistence.StoredProcedureParameter;
 import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureParameter;
 import javax.persistence.Table;
 
 @Entity
@@ -28,6 +28,15 @@ import javax.persistence.Table;
 			      
 			   })
 })
+/**
+ * If you want to use serialization by annotation you have to uncomment the two annotations
+ * below and can use directly without CustomSerialization class. In test cases also we 
+ * can directly use ObjectMapper.
+ * @author v.rama.krishnan
+ *
+ */
+//@JsonDeserialize(using = CustomSerializationImpl.class)
+//@JsonSerialize(using = BasketItemSerializer.class)
 public class Customer implements Serializable{
 
 	private static final long serialVersionUID = 1L;

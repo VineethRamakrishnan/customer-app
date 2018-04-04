@@ -11,6 +11,7 @@ This java based library is mainly used for serialization(Java Object to JSON) an
 
 * [Basic Doc](https://www.tutorialspoint.com/jackson/jackson_first_application.htm)
 * [Multiple examples](http://tutorials.jenkov.com/java-json/jackson-objectmapper.html#read-object-from-json-reader)
+* [Custom serialization](https://www.rainerhahnekamp.com/en/spring-mvc-json-serialization/)
 
 ##### HttpMessageConverters
 
