@@ -30,7 +30,7 @@ import javax.persistence.Table;
 })
 /**
  * If you want to use serialization by annotation you have to uncomment the two annotations
- * below and can use directly without CustomSerialization class. In test cases also we 
+ * below and can use directly without CustomSerialization class. In test cases too we 
  * can directly use ObjectMapper.
  * @author v.rama.krishnan
  *

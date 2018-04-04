@@ -9,9 +9,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import junit.framework.Assert;
 
-public class SerializationServiceImplTest {
+public class CustomSerializationImplTest {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(SerializationServiceImplTest.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CustomSerializationImplTest.class);
 	
 	@Test
 	 public void deserializeTest() throws Exception {
@@ -19,7 +19,7 @@ public class SerializationServiceImplTest {
 		String requestString = "{\"BasicDetails\": {\"name\": \"Srinivasan\", \"address\": \"Hyderabad\",\"age\": 22, \"customerId\": 125}, \"AddtionalDetails\": { \"customerPoints\": 275.85}}";
 		
 		ObjectMapper objectMapper = new ObjectMapper();
-	    objectMapper.registerModule(new CustomSerialization());
+	    objectMapper.registerModule(new CustomJsonModule());
 	 
 	    
 	    Customer customer= objectMapper.readValue(requestString,Customer.class);

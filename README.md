@@ -11,7 +11,7 @@ This java based library is mainly used for serialization(Java Object to JSON) an
 
 * [Basic Doc](https://www.tutorialspoint.com/jackson/jackson_first_application.htm)
 * [Multiple examples](http://tutorials.jenkov.com/java-json/jackson-objectmapper.html#read-object-from-json-reader)
-* [Custom serialization](https://www.rainerhahnekamp.com/en/spring-mvc-json-serialization/)
+* [Custom serialization/deserialization](https://www.rainerhahnekamp.com/en/spring-mvc-json-serialization/)
 
 ##### HttpMessageConverters
 
@@ -20,6 +20,8 @@ Bean used to manage the HttpMessageConverters used in a Spring Boot application.
 1.Based on the **Content-Type** header it will call the corresponding MessageConvertor (For @RequestBody)
 
 2.Based on the **Accept** header it will call the the corresponding MessageConveror (For @ResponseBody) 
+
+* [With Spring Framework](http://www.baeldung.com/spring-httpmessageconverter-rest)
 
 
 ### CustomQuery
@@ -36,7 +38,6 @@ It supports various custom SQL/JPQL queries to accomplish specialized applicatio
 
 Stored Procedures allow to reuse the queries over multiple times just by passing the required parameters. spring-data-JPA provides flexible way to access the stored procedures by just annotating the entity class with @NamedStoredProcedureQuery.
 
-#### References
 
 * [Introduction and Creation of Stored Procedures-1](https://www.mssqltips.com/sqlservertutorial/160/sql-server-stored-procedure-tutorial/)
 * [Introduction and Creation of Stored Procedures-2 (Specific to MYSQL)](http://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx)
