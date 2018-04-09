@@ -12,11 +12,17 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  data:
+    mongodb:
+      database: sample
+      host: localhost
+      port: 27017
     
 configuration:
   ipAddress: localhost
   environment: development
   
+#Mongo DB
 #prop:
 #  retailers:
 #  - 

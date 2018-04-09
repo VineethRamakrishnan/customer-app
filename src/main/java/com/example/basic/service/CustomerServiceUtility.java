@@ -9,7 +9,6 @@ import javax.persistence.StoredProcedureQuery;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.basic.data.Customer;
@@ -18,13 +17,18 @@ import com.example.basic.repository.CustomerRepository;
 @Service
 public class CustomerServiceUtility implements CustomerService {
 
-	@Autowired
-	private CustomerRepository customerrepo;
+	private final CustomerRepository customerrepo;
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerServiceUtility.class);
+
+	public CustomerServiceUtility(CustomerRepository customerrepo, EntityManager entityManager) {
+		super();
+		this.customerrepo = customerrepo;
+		this.entityManager = entityManager;
+	}
 
 	@Override
 	public Customer saveCustomer(Customer customer) {
@@ -77,25 +81,23 @@ public class CustomerServiceUtility implements CustomerService {
 
 	@Override
 	public List<Customer> getAllCustomersByCustomQuery() {
-		
+
 		return customerrepo.findAllByCustomQuery();
 	}
 
 	@Override
-	public Customer updateCustomersByStoredProcedure(Long customer_id,Double customer_pts) {
-		
+	public Customer updateCustomersByStoredProcedure(Long customer_id, Double customer_pts) {
+
 		StoredProcedureQuery query = entityManager.createNamedStoredProcedureQuery("update_procedure");
 		query.registerStoredProcedureParameter(1, Long.class, ParameterMode.IN);
 		query.registerStoredProcedureParameter(2, Double.class, ParameterMode.IN);
-		
+
 		query.setParameter(1, customer_id);
 		query.setParameter(2, customer_pts);
-		
+
 		query.execute();
-		
+
 		return (Customer) query.getSingleResult();
 	}
-	
-	
 
 }

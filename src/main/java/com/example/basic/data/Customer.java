@@ -39,19 +39,22 @@ import javax.persistence.Table;
 //@JsonSerialize(using = BasketItemSerializer.class)
 public class Customer implements Serializable{
 
-	private static final long serialVersionUID = 1L;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8770902144472421458L;
 
 	@Id
 	@Column(name = "id")
 	private Long customerId;
 
-	@Column
+	@Column(name = "name")
 	private String name;
 
-	@Column
+	@Column(name = "address")
 	private String address;
 
-	@Column
+	@Column(name = "age")
 	private Long age;
 
 	@Column(name = "points")
@@ -116,5 +119,55 @@ public class Customer implements Serializable{
 				+ ", customerPoints=" + customerPoints + "]";
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + ((age == null) ? 0 : age.hashCode());
+		result = prime * result + ((customerId == null) ? 0 : customerId.hashCode());
+		result = prime * result + ((customerPoints == null) ? 0 : customerPoints.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (age == null) {
+			if (other.age != null)
+				return false;
+		} else if (!age.equals(other.age))
+			return false;
+		if (customerId == null) {
+			if (other.customerId != null)
+				return false;
+		} else if (!customerId.equals(other.customerId))
+			return false;
+		if (customerPoints == null) {
+			if (other.customerPoints != null)
+				return false;
+		} else if (!customerPoints.equals(other.customerPoints))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
+	
 	
 }

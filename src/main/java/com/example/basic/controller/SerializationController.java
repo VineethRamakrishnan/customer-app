@@ -1,6 +1,7 @@
 package com.example.basic.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,9 +15,15 @@ import com.example.basic.service.SerializationService;
 @RequestMapping("/jackson")
 public class SerializationController {
 	
-	@Autowired
-	private SerializationService serializationservice;
+	private final SerializationService serializationservice;
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(SerializationController.class);
+	
+	public SerializationController(SerializationService serializationservice) {
+		super();
+		this.serializationservice = serializationservice;
+	}
+
 	@GetMapping(value = "/serialization")
 	public String convertObjectToJSON() throws Exception {
 		
