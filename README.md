@@ -4,6 +4,7 @@
 * Spring Boot : Json to Object (Jackson mapping)
 * JPA : 1-1 and 1-Many
 * JPA : Stored Procedure and CustomQuery
+* Mongo DB : MongoRepository and MongoClient
 
 ### Jackson
 
@@ -43,3 +44,26 @@ Stored Procedures allow to reuse the queries over multiple times just by passing
 * [Introduction and Creation of Stored Procedures-2 (Specific to MYSQL)](http://www.mysqltutorial.org/getting-started-with-mysql-stored-procedures.aspx)
 * [Spring Docs on Stored Procedure](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.stored-procedures) 
 * [Sample Article](https://dzone.com/articles/calling-stored-procedures-from-spring-data-jpa)
+
+
+### Mongo DB
+
+Mongo DB is one type of the database technology which works based on the documents. Some of the basic terminologies in Mongo DB which has similar context in MySQL
+
+| Mongo DB | MySQL |
+| --- | --- |
+| Database | Database |
+| Collection | Table |
+| Document | Row |
+| Field | Column |
+| Primary Key | Primary Key |
+| Joining | Linking & Embedding |
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+  
+* [Example using MongoClient](https://howtodoinjava.com/mongodb/mongodb-selectqueryfind-documents-examples/)
+  
