@@ -58,12 +58,7 @@ Mongo DB is one type of the database technology which works based on the documen
 | Field | Column |
 | Primary Key | Primary Key |
 | Joining | Linking & Embedding |
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
   
 * [Example using MongoClient](https://howtodoinjava.com/mongodb/mongodb-selectqueryfind-documents-examples/)
+* [Journaldev Example](https://www.journaldev.com/3963/mongodb-java-crud-example-tutorial)
   
