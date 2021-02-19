@@ -1,5 +1,6 @@
 package com.example.basic.controller;
 
+import java.lang.invoke.MethodHandles;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -19,7 +20,7 @@ import com.example.basic.service.CustomerService;
 @RequestMapping("/customer")
 public class CustomerController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	private final CustomerService customerutil;
 

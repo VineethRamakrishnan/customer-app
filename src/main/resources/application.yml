@@ -22,6 +22,9 @@ configuration:
   ipAddress: localhost
   environment: development
   
+topic:
+  name: sample
+  
 #Mongo DB
 #prop:
 #  retailers:

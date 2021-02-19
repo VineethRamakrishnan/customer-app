@@ -5,6 +5,7 @@
 * JPA : 1-1 and 1-Many
 * JPA : Stored Procedure and CustomQuery
 * Mongo DB : MongoRepository and MongoClient
+* Kafka : Messaging based on the Partition in the request parameter
 
 ### Jackson
 
@@ -61,4 +62,14 @@ Mongo DB is one type of the database technology which works based on the documen
   
 * [Example using MongoClient](https://howtodoinjava.com/mongodb/mongodb-selectqueryfind-documents-examples/)
 * [Journaldev Example](https://www.journaldev.com/3963/mongodb-java-crud-example-tutorial)
+
+
+### Kafka
+
+One of the distributed messaging platform to send/receive messages through topics.
+
+Get familiar with kafka jargon using [this video](https://www.youtube.com/watch?v=-ioxYn9Vlao). Basic documentation for starting zookeeper server, kafka server and creating topic see [kafka docs](https://kafka.apache.org/quickstart). UI for kafka components [kafdrop](https://github.com/HomeAdvisor/Kafdrop).
+
+In this example kafka with multiple partitions is implemented. User have to specify the particular partition as part of the request parameter to send/receive messages.  
+
   
